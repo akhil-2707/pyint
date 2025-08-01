@@ -1,289 +1,306 @@
-# List -> [], hetero, duplication, indexing
+#check on cmd python -- version
+# Python code to demonstrate basic string operations
+#to print
+print("hello world")
+#assigning vvariables
+#string can be assigned in single or double quotes
+name="akhilesh\n"
+sname='gupta'
+cityName ="akhilesh's city name is lucknow"
+#snake_case notation
+#multi-line string can be assigned using triple quotes
+#single or double quotes can be used for multi-line strings
 
-# empty list
+address_is='''this is multi
+line 
+string address is 
+u.p.
+'''
+print(sname)
+print(name )
+print(cityName)
+#string concatenation(joining) comma laga kr assignment krna
+caste,age= 'gupta', 25
+
+print(caste, age)
+print(name*3)
+#square of three
+sqr_of_three=3**2
+print(sqr_of_three)
+# f string is jormated string
+print(f"Myself is {name} and my age is {age} and my caste is {caste}")
+
+#loop
+#for loop
+chars ="abcdef"
+ 
+for char in chars:
+    print(char)
+
+
+# range(start, stop minus 1,step(gap))
+# FIRST for to start and second one to one minus of that 1
+#the third one is step
+for num in range(1, 11, 2):
+    print(num)
+for num in range(5,11):
+    print(num)
+# membership operator-> in , not in
+city = "mumbai "
+index=0
+print("m" in city)  # True
+if "m" in city:
+    print("m is present in city")
+# while loop
+#conditional statement
+while "a" in "mumbai":
+    if city[index] == "b":
+        break #mum likhna h 
+    else:
+        print(city[index])
+    index += 1
+    #function
+# default func
+def display():
+    print("This is a default function")
+
+display()
+# parameter function
+def add(num1,num2):
+    print(num1 + num2)
+
+add(10,20)
+#function with return type
+def greet(name): #name is a signature greet("akhil",18)-->false
+    return "welcome " + name
+
+print(greet("akhil"))
+
+greet_message = greet("pihu")
+print(greet_message)
+# num = 10 --> declare plus initialise 
+# int num --> declare only variable 
+#void display(); --> declare 
+#above is how to declare a variable in python
+num = int()
+print(num)
+sum = int() #yha pr type change krdiya h
+sum = "akhil"
+print(sum)
+#pass is a key word (pre defined word jiski compiler ko meaning pata ho) mtlv kuch chalega nhi bss declare ho jaeyega
+def show():
+    pass
+
+def numbers(*take_nums):
+    print(take_nums)
+
+numbers(10,20,30,40)#tupple
+#error 
+# def take_multi_values(*nums, num2, num3):
+      #print(num1,num2, num3)
+
+
+def account(salary = 101):
+    print(salary)
+
+account()
+account(salary = 1000)
+account(5000) #default value will be overridden by this value   
+
+def about_person(**details):
+    print(details)
+
+about_person(name = "Akhil", age = 25, city = "Lucknow") #dictionary   
+ 
+def take_multi_values(*nums, num2, num3):
+    print(nums, num2, num3)
+# take_multi_values(10, 20, 30, num2=40, num3=50) # This will raise an error
+take_multi_values(10, 20, num2=30, num3=40) # This will work NOT (10, 20, 30, 40, 50)
+
+#keyword type function
+def about_student(name, age,ac,pc):
+    print(name , age, ac, pc)
+
+about_student(name = "Akhil", age = 25, ac = 90, pc = 95) # keyword arguments
+# This will work
+def about_student(name = "Akhil", age = 25):
+    print(name, age)
+
+about_student() # This will use default values
+about_student(name = "Pihu", age = 18) # This will override default values
+
+# list --> [] , heterogeneous data type
+# list is mutable
+#  indexing is used to access the elements of a list
+# list is a collection of items that can be changed, ordered, and allows duplicate values
+
+#empty list
 nothing = []
 print(nothing)
 
-# homo list
-colors = ['red', 'green', 'blue', 'yellow']
+#homogeneous list
+colors = ['red','green','blue','yellow']
 print(colors)
 
-# hetero list
-mixed_doubles = ["Yug", 20, "Anamika", 22]
-print(mixed_doubles)
+#heterogeneous list
+mixed = [1,2,3,'red','green',True,3.14]
+print(mixed)
 
-# duplication
-fruits = ["apple", "orange", "pear", "pear"]
+#list with duplicate values
+fruits = ['apple', 'banana', 'apple', 'orange']
 print(fruits)
+#accessing elements of a list
+print(colors[0]) # red  
+print(colors[1]) # green
 
+# indexing (positive and negative) , slicing
+numbers = [1, 2, 3, 4, 5]
+print(numbers[0])  # 1
+print(numbers[-1])  # 5 (last element)
+print(numbers[1:4])  # [2, 3, 4] (slicing from index 1 to 3)
+print(numbers[::-1])  # [5, 4, 3, 2, 1] (reversed list)
+ #functions
+# append() - adds an element to the end of the list
 
-# indexing (+ve, -ve), Slicing
-numbers = [10, 20, 30, 40, 50]
-print(numbers[-1])
-print(numbers[::-1])
+numbers.append(6)
+print(numbers)  # [1, 2, 3, 4, 5, 6]
+# insert() - adds an element at a specific index
+numbers.insert(2, 200 )
+print(numbers)  # [1, 2, 200, 3, 4, 5, 6]
 
-# Functions
-# to add elements
-
-numbers.append(100)
-print(numbers)
-
-numbers.insert(2, 200)
-print(numbers)
+# extend() - adds multiple elements to the end of the list
+numbers.extend([7, 8, 9])   
+print(numbers)  # [1, 2, 200, 3, 4, 5, 6, 7, 8, 9]
 
 numbers.extend("hi")
-print(numbers)
+print(numbers)  # [1, 2, 200, 3, 4, 5, 6, 7, 8, 9, 'h', 'i']
 
-numbers.extend([600, 700, 800])
-print(numbers)
+# remove() - removes the first occurrence of a specific element
+numbers.remove(200)
+print(numbers)  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 'h', 'i']
 
-# to remove elements
-
-numbers.remove(600)
-print(numbers)
-
+# pop() - removes and returns the last element of the list
 # pop with index
 numbers.pop(1)
-print(numbers)
+print(numbers)  # [1, 3, 4, 5, 6, 7, 8, 9, 'h', 'i']
 
 # pop without index
 numbers.pop()
-print(numbers)
+print(numbers)  # [1, 3, 4, 5, 6, 7, 8, 9, 'h']
 
+# clear() - removes all elements from the list
 numbers.clear()
-print(numbers)
+print(numbers)  # []
 
 # del numbers
-# print(numbers)
+#print(numbers)  # NameError: name 'numbers' is not defined
 
-# List Within List
+# count() - returns the number of occurrences of a specific element
+fruits = ['apple', 'banana', 'apple', 'orange'] 
+print(fruits.count('apple'))  # 2
+
+#list within a list
 
 sublist = [
-            [1,2,3],
-            [10, 20, 30]
-          ]
+           [1, 2, 3], #matrix
+           [10, 20, 30]
+           ]
+print(sublist)  # [[1, 2, 3], [10, 20, 30]]
+print(sublist[0])  # [1, 2, 3]
+print(sublist[0][1])  # 2 (accessing element at index   1 of the first sublist)
 
-print(sublist[1])
-print(sublist[1][1])
+print("printing cols")
+for row in sublist:
+    for cols in row:
+        print(cols* 3)
+        # 6, 12, 18
 
-print("Printing cols")
-for rows in sublist:
-    for cols in rows:
-        print(cols*3)
+print("printing rows")
+for i in range(len(sublist)):
+    for j in range(len(sublist[i])):
+        print(sublist[i][j] * 2)
+        # 2, 4, 6, 20, 40, 60
+# list comprehension
+# or 
+print("printing cols")
+for row in sublist:
+    for cols in row: # for only one time remove this loop
+        print(row* 3)
+        # 6, 12, 18
+num1 = [1, 2, 3, 4, 5]
+num2 = [10,20,30,40,50]
 
-colors = ['red', 'green', 'blue', 'yellow']
-fruits = ["apple", "orange", "pear", "pear"]
-
-# Concat
-combined_list = colors + fruits
-print(combined_list)
-
-nums1 = [1,2,3,4,5]
-nums2 = [10, 20, 30, 40, 50]
-
-final_nums_result = []
-
+final_nums_result =[]
 for index in range(0,5):
-   final_nums_result.append(nums1[index] + nums2[index])
+    final_nums_result.append(num1[index] + num2[index])
+print(final_nums_result)  # [11, 22, 33, 44, 55]
 
-print(final_nums_result)
+# list comprehension
+final_nums_result2 = [num1[index] + num2[index] for index in range(0, 5)]
+print(final_nums_result2)  # [11, 22, 33, 44, 55]
 
-
-# List Comprehensions
-
-final_nums_result2 = [nums1[index] + nums2[index] for index in range(0,5)]
-print(final_nums_result2)
-
-multiple_of_two = [element * 2 for element in nums1]
-print(multiple_of_two)
-
+multiple_of_2 = [element * 2 for element in num1]
+print(multiple_of_2)  # [2, 4, 6, 8, 10]
 
 list1 = [10, 20, 30, 40, 50]
-list2 = list1  # pass by reference
+list2 = list1  #pass by refrence
 print(list1)
-print(list2)
+print(list2)  # [10, 20, 30, 40, 50]
 
-list2[0] = 99
-print(list1)
-print(list2)
+list2[0] = 100
+print(list1)  # [100, 20, 30, 40, 50]   
+print(list2)  # [100, 20, 30, 40, 50]
 
 list3 = [10, 20, 30, 40, 50]
 list4 = list3.copy()  # pass by value
-print(list3)
-print(list4)
+print(list3)  # [10, 20, 30, 40, 50]
+print(list4)  # [10, 20, 30, 40,    50]
 
-list4[0] = 88
-print(list3)
-print(list4)
+list4[0] = 100
+print(list3)  # [10, 20, 30, 40,    50]
+print(list4)  # [100, 20, 30, 40, 50]
 
+# no line after the end of the file
+# Statements must be separated by newlines or semicolons
+# for indentation, use spaces or tabs consistently(may be 4 spaces )
+# progarm of if else will satrt with collon and end untill last line
+age= int(input("Enter your age: "))
+if age >= 18:
+    print("You are eligible to vote.")
+    print(f"Your age is {age} and you can vote.")
+else:
+    print("You are not eligible to vote.")
 
+def sum(num1,num2):
+    print(num1 + num2)
+    num1= num1 + num2
+    def div(num1):
+        print(int(num1/2))
+    div(num1)
+sum(10,20) # 30
+# 30/2 = 15 
+#def sum(num1,num2):
+#    def div():
+#        print(int(num1/2))
+#    div()
+#sum(10,20) # 30
+# 30/2 = 15 
 
----------------
+#calculator.py
+# This script defines a simple calculator function that performs basic arithmetic operations.
+def calculator(a, b, operation):
+    if operation == 'add':
+        print( a + b)
+    elif operation == 'subtract':
+        print(a - b)
+    elif operation == 'multiply':
+        print(a * b)
+    elif operation == 'divide':
+        if b != 0:
+            print(a / b)
+        else:
+            raise ValueError("Cannot divide by zero")
+    else:
+        raise ValueError("Invalid operation")
 
-# tuple -> (), indexing, slicing, duplication, immutable
-
-tup1 = ()
-print(type(tup1))
-print(tup1)
-
-colors = ("red", "green", "blue", "blue")
-print(colors)
-print(colors[0][-1])
-
-nums = (10)
-print(nums)
-print(type(nums))
-
-nums2 = (20,)
-print(nums2)
-print(type(nums2))
-
-# functions
-print(colors.index("blue"))
-
-print("Multi index for same value")
-for element in colors:
-    if "blue" in element:
-        print(colors.index(element))
-		
-colors = ("red", "green", "blue", "blue")
-
-for index in range(len(colors)):
-    if colors[index]=="blue":
-      print(f"Index:{index} , value = {colors[index]}")
-	  
-	  
------------------
-
-# dictionary => {}, key:values
-
-# Dic creation types
-empty_dic = {}
-print(empty_dic)
-print(type(empty_dic))
-
-about_person = {"name" : "Anamika","sname": "anmaikaSname"}
-print(about_person)
-print(about_person["sname"])
-
-
-address = {226005 : "Lucknow", 3.14:"pie"}
-print(address)
-print(address[226005 ])
-
-student_ids = {(101,102,103) : "Akhislesh"}
-print(student_ids)
-print(student_ids[(101,102,103)])
-
-
-fruits = {"mango" : ["Yellow", "2kg"], "Banana" : {"Color" : ["Green", "red"]}}
-fruits["Banana"]["Color"][1] = "yellow"
-print(fruits)
-
-
-# functions
-
-students = {"name" : ["A", "B", "C", "D"], "age" : [10, 20, 30, 40]}
-print(students)
-
-sid = {"ids" :[101, 102, 103, 104]}
-
-# to add key: value we use update
-students.update(sid)
-print(students)
-
-
-# to update any key value pair we use this variation
-students["bg"] = ["A+", "O+", "AB+"]
-print(students)
-
-students["id"] = [501, 502, 503, 504]
-print(students)
-
-# functions
-students.pop("id")
-print(students)
-
-students.popitem()
-print(students)
-
-
-----------------
-
-# Sets => {}
-empty_set = {}
-print(empty_set)
-print(type(empty_set))
-
-empty_set2 = set()
-print(empty_set)
-print(type(empty_set2))
-
-team = {"Arjun", "Pragnandha", "Gukesh", "Akshay"}
-
-# Operations
-team.add("Vishwnathan Anand")
-print(team)
-
-team.add("Vidhit")
-print(team)
-
-team.add("Divya")
-print(team)
-
-team.remove("Vishwnathan Anand")
-print(team)
-
-# Maths functions
-set1 = {1,2,3,4,5}
-set2 = {1,2,7,8,9}
-
-print(set1.intersection(set2))
-print(set1.union(set2))
-print(set1.symmetric_difference(set2))
-print(set1.difference(set2))
-set3 = {2,7,10, 11, 12}
-
-print(set1 & set2)
-print(set1 | set2)
-print(set1 ^ set2)
-print(set1 - set2)
-
-
-print(set1.union(set2).union(set3))
-print(set1 | set2 | set3)
-print(set1.union(set2) | set3)
-
-
-
-#---------------File Handling---------------
-
-# file = open("Data.txt", "r")
-# print(file.read())
-# print(file.readline())
-# print(file.readlines())
-
-# file = open("Data.txt", "w")
-# file.write("Hello World")
-
-# file = open("Data.txt", "a")
-# file.write("\nHi World")
-
-
-# copy data from 1 to other file
-file = open("Data.txt", "r")
-file2 = open("CopiedData.txt", "w")
-
-
-for data in file:
-    file2.write(data)
-
-file2.close()
-# file2 = open("CopiedData.txt", "r")
-# print(file2.read())
-
-
-with open("CopiedData.txt", "r") as file:
-    print(file.read())
-
-print(file.read())
+calculator(10, 5, 'add')  # Example usage
