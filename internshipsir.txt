@@ -1,0 +1,495 @@
+Functions --> 
+
+void display()
+{
+   printf("this is fucntion body");
+}
+
+display();
+
+# default fucnction
+def display():
+    print("this is fucntion body")
+	
+display()	
+	
+# param fucnction
+def add(num1, num2):
+    print(num1 + num2)
+	
+add(10, 20)	
+
+#function with return type
+
+def greet(name):
+    return "Welcome " + name 
+
+print(greet("Ujjwal"))	
+ 
+greet_message = greet("Aditya")
+print(greet_message)
+
+# Declare
+num = int()
+print(num)
+	
+#function declration
+def show():	
+    pass
+	
+def numbers(*take_nums):
+	print(take_nums)
+
+numbers(10, 20, 30, 40)
+
+def about_person(**details):
+	print(details)
+
+about_person(name="Ujjwal", age=18, city="Lucknow")
+
+
+# default values inside fucntion param 
+def account(salary = 101):
+	print(salary) 
+	
+account()	
+account(501)
+
+
+# Error
+def take_multi_values(*nums, num2, num3):
+	print(nums, num2, num3)
+
+take_multi_values(10, 20, 30, 40, 50)
+
+# Error Solution
+def take_multi_values(*nums, num2 = 60, num3 = 70):
+	print(nums, num2, num3)
+
+take_multi_values(10, 20, 30, 40, 50)
+
+# (10, 20, 30, 40, 50) 60 70
+
+# Quiz --> Solution --> Error 
+def take_multi_values(num1 = 10, *nums1, *nums2):
+	print(num1, nums1, nums2)
+
+take_multi_values(30, 40, 50)
+
+# KeyWord Types function
+
+def about_student(name, age, ac, pc):
+	print(name, age, ac, pc)
+
+about_student(age = 20, name = "Ujjwal", ac = 123, pc = 420)
+
+
+def about_student(name = "Ujjwal", age = 20):
+	print(name, age)
+
+about_student(age = 19, name = "Yug")
+
+
+
+# Nested Functions
+
+def outer(num1, num2):
+    sum = num1 + num2
+    def inner(take_sum):
+        final_result = take_sum / 2
+        return final_result
+    return inner(sum)
+
+print(outer(10, 20))
+
+
+def outer(num1, num2):
+    sum = num1 + num2
+    def inner():
+        return sum / 2        
+    return inner()
+
+print(outer(10, 20))
+
+
+# Lamda(UnKnown) Functions -> be default returns RETURN
+
+def greet(name):
+	return "Welcome " + name
+	
+greet()
+
+
+# 1st Example
+greet = lambda : "Welcome"
+print(greet())
+
+
+# 2nd Example
+greet = lamda name: "Welcome " + name
+greet()
+
+# Can we save normal fucntionsjust like lambda function --> Yes
+
+def greet(name):
+    return "Welcome " + name
+
+function_saved = greet
+
+print(function_saved("Ujjwal"))
+
+-------------------------
+
+# Data Structures
+
+
+group_of_chars = "abcd"
+print(group_of_chars[0])
+print(group_of_chars[1])
+print(group_of_chars[2])
+print(group_of_chars[3])
+
+print(id(group_of_chars))
+print(id(group_of_chars[0]))
+print(id(group_of_chars[1]))
+print(id(group_of_chars[2]))
+print(id(group_of_chars[3]))
+
+1856373959600
+1856372001776
+1856371712240
+1856370131632
+1856370131376
+
+# String Indexing 
+
+Negative(-1) & Positive(0)
+
+name = "Lucknow"
+print(len(name))
+
+print(name[0])
+print(name[-1])
+print(name[8])
+
+# Slicing [subString][start : stop : step]
+
+print(name[:])
+print(name[1: 4])
+
+# Quiz
+print(name[0:7])
+print(name[::1])
+print(name[0:7:-1]) => no output
+print(name[-1:-8:-1])
+print(name[-1:-8:1]) => no output
+print(name[-8:])
+
+
+name = "Manav"
+print(id(name[0]))
+print(id(name[1]))
+print(id(name[2]))
+print(id(name[3]))
+print(id(name[4]))
+
+print(name.count("a"))
+
+# Error -> String is Immutable
+name[1] = "b"
+
+
+name = "Manav Bharatiya"
+
+print(name.split(" "))
+print(name)
+
+# List -> [], hetero, duplication, indexing
+
+# empty list
+nothing = []
+print(nothing)
+
+# homo list
+colors = ['red', 'green', 'blue', 'yellow']
+print(colors)
+
+# hetero list
+mixed_doubles = ["Yug", 20, "Anamika", 22]
+print(mixed_doubles)
+
+# duplication
+fruits = ["apple", "orange", "pear", "pear"]
+print(fruits)
+
+
+# indexing (+ve, -ve), Slicing
+numbers = [10, 20, 30, 40, 50]
+print(numbers[-1])
+print(numbers[::-1])
+
+# Functions
+# to add elements
+
+numbers.append(100)
+print(numbers)
+
+numbers.insert(2, 200)
+print(numbers)
+
+numbers.extend("hi")
+print(numbers)
+
+numbers.extend([600, 700, 800])
+print(numbers)
+
+# to remove elements
+
+numbers.remove(600)
+print(numbers)
+
+# pop with index
+numbers.pop(1)
+print(numbers)
+
+# pop without index
+numbers.pop()
+print(numbers)
+
+numbers.clear()
+print(numbers)
+
+# del numbers
+# print(numbers)
+
+# List Within List
+
+sublist = [
+            [1,2,3],
+            [10, 20, 30]
+          ]
+
+print(sublist[1])
+print(sublist[1][1])
+
+print("Printing cols")
+for rows in sublist:
+    for cols in rows:
+        print(cols*3)
+
+colors = ['red', 'green', 'blue', 'yellow']
+fruits = ["apple", "orange", "pear", "pear"]
+
+# Concat
+combined_list = colors + fruits
+print(combined_list)
+
+nums1 = [1,2,3,4,5]
+nums2 = [10, 20, 30, 40, 50]
+
+final_nums_result = []
+
+for index in range(0,5):
+   final_nums_result.append(nums1[index] + nums2[index])
+
+print(final_nums_result)
+
+
+# List Comprehensions
+
+final_nums_result2 = [nums1[index] + nums2[index] for index in range(0,5)]
+print(final_nums_result2)
+
+multiple_of_two = [element * 2 for element in nums1]
+print(multiple_of_two)
+
+
+list1 = [10, 20, 30, 40, 50]
+list2 = list1  # pass by reference
+print(list1)
+print(list2)
+
+list2[0] = 99
+print(list1)
+print(list2)
+
+list3 = [10, 20, 30, 40, 50]
+list4 = list3.copy()  # pass by value
+print(list3)
+print(list4)
+
+list4[0] = 88
+print(list3)
+print(list4)
+
+
+
+---------------
+
+# tuple -> (), indexing, slicing, duplication, immutable
+
+tup1 = ()
+print(type(tup1))
+print(tup1)
+
+colors = ("red", "green", "blue", "blue")
+print(colors)
+print(colors[0][-1])
+
+nums = (10)
+print(nums)
+print(type(nums))
+
+nums2 = (20,)
+print(nums2)
+print(type(nums2))
+
+# functions
+print(colors.index("blue"))
+
+print("Multi index for same value")
+for element in colors:
+    if "blue" in element:
+        print(colors.index(element))
+		
+colors = ("red", "green", "blue", "blue")
+
+for index in range(len(colors)):
+    if colors[index]=="blue":
+      print(f"Index:{index} , value = {colors[index]}")
+	  
+	  
+-----------------
+
+# dictionary => {}, key:values
+
+# Dic creation types
+empty_dic = {}
+print(empty_dic)
+print(type(empty_dic))
+
+about_person = {"name" : "Anamika","sname": "anmaikaSname"}
+print(about_person)
+print(about_person["sname"])
+
+
+address = {226005 : "Lucknow", 3.14:"pie"}
+print(address)
+print(address[226005 ])
+
+student_ids = {(101,102,103) : "Akhislesh"}
+print(student_ids)
+print(student_ids[(101,102,103)])
+
+
+fruits = {"mango" : ["Yellow", "2kg"], "Banana" : {"Color" : ["Green", "red"]}}
+fruits["Banana"]["Color"][1] = "yellow"
+print(fruits)
+
+
+# functions
+
+students = {"name" : ["A", "B", "C", "D"], "age" : [10, 20, 30, 40]}
+print(students)
+
+sid = {"ids" :[101, 102, 103, 104]}
+
+# to add key: value we use update
+students.update(sid)
+print(students)
+
+
+# to update any key value pair we use this variation
+students["bg"] = ["A+", "O+", "AB+"]
+print(students)
+
+students["id"] = [501, 502, 503, 504]
+print(students)
+
+# functions
+students.pop("id")
+print(students)
+
+students.popitem()
+print(students)
+
+
+----------------
+
+# Sets => {}
+empty_set = {}
+print(empty_set)
+print(type(empty_set))
+
+empty_set2 = set()
+print(empty_set)
+print(type(empty_set2))
+
+team = {"Arjun", "Pragnandha", "Gukesh", "Akshay"}
+
+# Operations
+team.add("Vishwnathan Anand")
+print(team)
+
+team.add("Vidhit")
+print(team)
+
+team.add("Divya")
+print(team)
+
+team.remove("Vishwnathan Anand")
+print(team)
+
+# Maths functions
+set1 = {1,2,3,4,5}
+set2 = {1,2,7,8,9}
+
+print(set1.intersection(set2))
+print(set1.union(set2))
+print(set1.symmetric_difference(set2))
+print(set1.difference(set2))
+set3 = {2,7,10, 11, 12}
+
+print(set1 & set2)
+print(set1 | set2)
+print(set1 ^ set2)
+print(set1 - set2)
+
+
+print(set1.union(set2).union(set3))
+print(set1 | set2 | set3)
+print(set1.union(set2) | set3)
+
+
+
+---------------File Handling---------------
+
+# file = open("Data.txt", "r")
+# print(file.read())
+# print(file.readline())
+# print(file.readlines())
+
+# file = open("Data.txt", "w")
+# file.write("Hello World")
+
+# file = open("Data.txt", "a")
+# file.write("\nHi World")
+
+
+# copy data from 1 to other file
+file = open("Data.txt", "r")
+file2 = open("CopiedData.txt", "w")
+
+
+for data in file:
+    file2.write(data)
+
+file2.close()
+# file2 = open("CopiedData.txt", "r")
+# print(file2.read())
+
+
+with open("CopiedData.txt", "r") as file:
+    print(file.read())
+
+print(file.read())
